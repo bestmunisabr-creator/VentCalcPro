@@ -76,7 +76,34 @@ function calculate() {
     "Рекомендуемое количество каналов: " + ducts;
 
 }
+<div class="calculator">
 
+<h2>Расчёт элементов воздуховода</h2>
+
+<label>Выберите элемент:</label>
+
+<select id="element">
+    <option>Смещение</option>
+    <option>Переход</option>
+</select>
+
+
+<label>Размер 1 (мм):</label>
+
+<input type="number" id="size1" placeholder="Например 250">
+
+
+<label>Размер 2 (мм):</label>
+
+<input type="number" id="size2" placeholder="Например 160">
+
+
+<button onclick="elementCalc()">Рассчитать</button>
+
+
+<div id="elementResult"></div>
+
+</div>
 </script>
 
 
