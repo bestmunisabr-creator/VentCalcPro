@@ -104,7 +104,41 @@ function calculate() {
 <div id="elementResult"></div>
 
 </div>
-</script>
+</function elementCalc(){
+
+let element = document.getElementById("element").value;
+
+let s1 = document.getElementById("size1").value;
+
+let s2 = document.getElementById("size2").value;
+
+
+if(s1 <= 0 || s2 <= 0){
+
+document.getElementById("elementResult").innerHTML =
+"Введите размеры";
+
+return;
+
+}
+
+
+if(element == "Смещение"){
+
+document.getElementById("elementResult").innerHTML =
+"Смещение воздуховода: " + s1 + " → " + s2 + " мм";
+
+}
+
+
+if(element == "Переход"){
+
+document.getElementById("elementResult").innerHTML =
+"Переход с размера " + s1 + " мм на " + s2 + " мм";
+
+}
+
+}script>
 
 
 </body>
