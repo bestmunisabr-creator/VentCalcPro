@@ -1,123 +1,17 @@
-body {
+function calculateOffset45() {
 
-    font-family: Arial, sans-serif;
+    let offset = Number(document.getElementById("offset").value);
 
-    background: #eaf4ff;
+    if (!offset || offset <= 0) {
+        document.getElementById("offsetResult").innerHTML =
+        "Введите размер смещения";
+        return;
+    }
 
-    text-align: center;
+    // Расчёт вставки между двумя отводами 45°
+    let result = offset * 1.414;
 
-    padding: 40px;
-
-}
-
-
-h1 {
-
-    color: #0066cc;
-
-    font-size: 42px;
-
-}
-
-
-p {
-
-    font-size: 20px;
-
-    color: #333;
-
-}
-
-
-
-.calculator {
-
-    background: white;
-
-    max-width: 450px;
-
-    margin: 30px auto;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-
-}
-
-
-
-label {
-
-    display: block;
-
-    text-align: left;
-
-    margin-top: 15px;
-
-    font-size: 17px;
-
-}
-
-
-
-input, select {
-
-    width: 95%;
-
-    padding: 12px;
-
-    margin-top: 8px;
-
-    font-size: 16px;
-
-    border-radius: 8px;
-
-    border: 1px solid #aaa;
-
-}
-
-
-
-button {
-
-    margin-top: 25px;
-
-    padding: 14px 35px;
-
-    background: #0066cc;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 10px;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
-}
-
-
-
-button:hover {
-
-    background: #004c99;
-
-}
-
-
-
-#result {
-
-    margin-top: 30px;
-
-    font-size: 20px;
-
-    color: green;
-
-    line-height: 1.6;
-
+    document.getElementById("offsetResult").innerHTML =
+    "Длина вставки между отводами: " 
+    + result.toFixed(0) + " мм";
 }
