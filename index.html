@@ -1,42 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VentCalcPro</title><link rel="stylesheet" href="style.css">
+    <title>VentCalcPro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <h1>VentCalcPro</h1>
 
-<p>Калькулятор вентиляции</p>
+<p>Профессиональный калькулятор вентиляции</p>
 
 <div class="calculator">
 
+    <label>Тип помещения:</label>
+
+    <select id="room">
+        <option value="3">Квартира</option>
+        <option value="5">Офис</option>
+        <option value="6">Магазин</option>
+        <option value="8">Производственное помещение</option>
+    </select>
+
+
     <label>Площадь помещения (м²):</label>
-    <input type="number" id="area" placeholder="Введите площадь">
+
+    <input type="number" id="area" placeholder="Например: 50">
+
 
     <label>Высота потолка (м):</label>
-    <input type="number" id="height" placeholder="Введите высоту">
+
+    <input type="number" id="height" placeholder="Например: 2.7">
+
 
     <button onclick="calculate()">Рассчитать</button>
 
-    <h2 id="result"></h2>
+
+    <div id="result"></div>
 
 </div>
+
+
 <script>
+
 function calculate() {
 
-    let area = document.getElementById("area").value;
-    let height = document.getElementById("height").value;
+    let area = Number(document.getElementById("area").value);
+    let height = Number(document.getElementById("height").value);
+    let room = Number(document.getElementById("room").value);
+
+
+    if (area <= 0 || height <= 0) {
+
+        document.getElementById("result").innerHTML =
+        "Введите правильные значения";
+
+        return;
+    }
+
 
     let volume = area * height;
-    let air = volume * 3;
+
+    let air = volume * room;
+
+
+    let ducts = Math.ceil(air / 150);
+
 
     document.getElementById("result").innerHTML =
-    "Необходимый воздухообмен: " + air + " м³/ч";
+    "Объём помещения: " + volume.toFixed(1) + " м³<br><br>" +
+    "Необходимый воздухообмен: " + air.toFixed(0) + " м³/ч<br><br>" +
+    "Рекомендуемое количество каналов: " + ducts;
+
 }
+
 </script>
+
+
 </body>
 </html>
