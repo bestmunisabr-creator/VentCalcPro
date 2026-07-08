@@ -25,6 +25,18 @@
     <h2 id="result"></h2>
 
 </div>
+<script>
+function calculate() {
 
+    let area = document.getElementById("area").value;
+    let height = document.getElementById("height").value;
+
+    let volume = area * height;
+    let air = volume * 3;
+
+    document.getElementById("result").innerHTML =
+    "Необходимый воздухообмен: " + air + " м³/ч";
+}
+</script>
 </body>
 </html>
